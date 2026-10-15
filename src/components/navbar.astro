@@ -1,0 +1,243 @@
+<nav aria-label="Navegación principal">
+    <a class="brand" href="#inicio" aria-label="Conamerco, inicio">
+        <img src="/conamercoweb.png" alt="Conamerco" />
+    </a>
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <ul id="primary-navigation">
+        <li><a href="#inicio">INICIO</a></li>
+        <li><a href="#conamerco-2026">CONAMERCO 2026</a></li>
+        <li><a href="#ejes-tematicos">EJES TEMÁTICOS</a></li>
+        <li><a href="#disertantes">DISERTANTES Y PROGRAMA</a></li>
+        <li><a href="#mundial">EL MUNDIAL</a></li>
+        <li><a href="#clam">CLAM</a></li>
+    </ul>
+</nav>
+
+<script>
+    const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
+    const primaryNavigation = document.querySelector<HTMLElement>('#primary-navigation');
+
+    if (menuButton && primaryNavigation) {
+        const closeMenu = () => {
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.setAttribute('aria-label', 'Abrir menú');
+            primaryNavigation.closest('nav')?.removeAttribute('data-menu-open');
+        };
+
+        menuButton.addEventListener('click', () => {
+            const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+
+            menuButton.setAttribute('aria-expanded', String(!isExpanded));
+            menuButton.setAttribute('aria-label', isExpanded ? 'Abrir menú' : 'Cerrar menú');
+            primaryNavigation.closest('nav')?.toggleAttribute('data-menu-open', !isExpanded);
+        });
+
+        primaryNavigation.addEventListener('click', (event) => {
+            if ((event.target as HTMLElement).closest('a')) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+                closeMenu();
+                menuButton.focus();
+            }
+        });
+    }
+</script>
+
+<style>
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1rem 1.25rem;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand {
+        display: inline-flex;
+        flex: 0 0 auto;
+        align-items: center;
+    }
+
+    .brand img {
+        display: block;
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        margin: 0;
+    }
+
+    nav ul li {
+        width: 120px;
+        flex: 0 0 auto;
+        min-width: 0;
+        min-height: 65px;
+        background-color: #003d72;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: background-color 150ms ease;
+    }
+
+    nav ul li a {
+        display: flex;
+        min-height: 65px;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    nav ul li:hover,
+    nav ul li:focus-within {
+        background-color: #007bff;
+    }
+
+    .menu-toggle {
+        display: none;
+        width: 48px;
+        height: 48px;
+        flex: 0 0 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #003d72;
+        transition: transform 150ms ease, opacity 150ms ease;
+    }
+
+    .menu-toggle:focus-visible,
+    nav a:focus-visible {
+        outline: 3px solid #007bff;
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 1000px) {
+        nav {
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0;
+            padding: 0.75rem 1rem;
+        }
+
+        .brand img {
+            width: 76px;
+            height: 76px;
+        }
+
+        .menu-toggle {
+            display: flex;
+        }
+
+        nav ul {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+            flex: 0 0 100%;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem 1rem;
+            background-color: #fff;
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        nav[data-menu-open] ul {
+            display: flex;
+        }
+
+        nav ul li,
+        nav ul li a {
+            width: 100%;
+            min-height: 48px;
+        }
+
+        nav ul li {
+            border-radius: 10px;
+        }
+
+        nav ul li a {
+            padding: 0.75rem 1rem;
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            padding: 0.5rem 0.75rem;
+        }
+
+        .brand img {
+            width: 64px;
+            height: 64px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            transition-duration: 0.01ms !important;
+        }
+    }
+
+    :global(html) {
+        scroll-behavior: smooth;
+        scroll-padding-top: 148px;
+    }
+
+    @media (max-width: 1000px) {
+        :global(html) {
+            scroll-padding-top: 96px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        :global(html) {
+            scroll-behavior: auto;
+        }
+    }
+</style>

@@ -1,0 +1,307 @@
+---
+import { homeContacts, homePurchaseLink } from "../data/site-content";
+---
+
+<main id="inicio">
+    <div class="home">
+        <img src="/home.png" alt="home" />
+        <div class="home-info">
+            <h1>XXVII CONAMERCO 2026</h1>
+            <ul>
+                <li>Innovar con inteligencia</li>
+                <li>Gestionar con propósito</li>
+                <li>Educar con humanidad</li>
+            </ul>
+            <div class="tres-cuatro-cinco">
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+            </div>
+            <h2>DE NOVIEMBRE 2026</h2>
+            <div class="ubicacion">
+                <img src="./ubicacion.png" alt="" />
+                <p>Espacio Le Parc - Mendoza - Argentina</p>
+            </div>
+        </div>
+    </div>
+    {
+        homePurchaseLink.href ? (
+            <a class="comprar-link" href={homePurchaseLink.href}>
+                {homePurchaseLink.label}
+            </a>
+        ) : (
+            <span class="comprar-link" aria-disabled="true">
+                {homePurchaseLink.label}
+            </span>
+        )
+    }
+    <h3>Contacto</h3>
+    <div class="contactos">
+        {homeContacts.map((contact) =>
+            contact.href ? (
+                <a href={contact.href} aria-label={contact.name}>
+                    <img src={contact.image} alt="" />
+                </a>
+            ) : (
+                <span aria-label={`${contact.name} (enlace pendiente)`}>
+                    <img src={contact.image} alt="" />
+                </span>
+            ),
+        )}
+    </div>
+    <img class="separador" src="/separador.png" alt="Separador" />
+</main>
+
+<style>
+    .home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 100px;
+        gap: 40px;
+    }
+
+    .home-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .home-info h1 {
+        font-family: "Poppins", sans-serif;
+        font-size: 28px;
+        color: #003d72;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    .home-info ul li {
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .tres-cuatro-cinco {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        font-size: 64px;
+        font-weight: bold;
+        color: #003d72;
+    }
+    .tres-cuatro-cinco div {
+        width: 80px;
+        border-right: 3px solid black;
+    }
+    h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 28px;
+        color: #003d72;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+    .ubicacion {
+        display: flex;
+        flex-direction: row;
+        font-size: 16px;
+        font-weight: 400;
+        gap: 16px;
+    }
+    .comprar-link {
+        width: 161px;
+        display: block;
+        background-color: #003d72;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 16px 32px;
+        border-radius: 35px;
+        border: none;
+        cursor: pointer;
+        margin: 72px auto 0;
+        text-align: center;
+        text-decoration: none;
+    }
+    a.comprar-link:hover {
+        background-color: #007bff;
+    }
+    .comprar-link[aria-disabled="true"] {
+        cursor: default;
+        opacity: 0.85;
+    }
+    h3{
+        font-family: "Poppins", sans-serif;
+        font-size: 24px;
+        color: #003d72;
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin: 32px auto 0;
+        display: block;
+        text-align: center;
+    }
+    .contactos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        margin-top: 24px;
+    }
+    .contactos a,
+    .contactos span {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    .contactos a:focus-visible {
+        outline: 3px solid #007bff;
+        outline-offset: 3px;
+    }
+    .contactos img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .separador{
+        width: 201px;
+        height:50px;
+        display: block;
+        margin: 42px auto 0;
+
+    }
+
+    @media (max-width: 900px) {
+        .home {
+            gap: 24px;
+            margin: 64px auto 0;
+            padding: 0 24px;
+        }
+
+        .home > img {
+            width: 48%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .home-info {
+            flex: 1;
+            min-width: 0;
+            gap: 16px;
+        }
+
+        .home-info h1 {
+            font-size: clamp(20px, 3vw, 28px);
+            text-align: center;
+        }
+
+        .home-info ul {
+            padding-left: 24px;
+        }
+
+        .home-info ul li {
+            font-size: clamp(16px, 2.2vw, 20px);
+        }
+
+        .tres-cuatro-cinco {
+            gap: clamp(12px, 3vw, 30px);
+            font-size: clamp(48px, 7vw, 64px);
+        }
+
+        .tres-cuatro-cinco div {
+            width: clamp(56px, 10vw, 80px);
+        }
+
+        h2 {
+            font-size: clamp(18px, 3vw, 28px);
+            text-align: center;
+        }
+
+        .ubicacion {
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ubicacion img {
+            flex: 0 0 auto;
+            max-width: 32px;
+            height: auto;
+        }
+
+        .ubicacion p {
+            font-size: clamp(14px, 1.8vw, 16px);
+        }
+
+        .contactos {
+            flex-wrap: wrap;
+            gap: 24px;
+            padding: 0 16px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .home {
+            flex-direction: column;
+            gap: 28px;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .home > img {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .home-info {
+            width: 100%;
+            gap: 16px;
+        }
+
+        .home-info h1 {
+            font-size: clamp(21px, 6vw, 28px);
+            letter-spacing: 1px;
+        }
+
+        .home-info ul {
+            align-self: center;
+        }
+
+        .home-info ul li {
+            font-size: clamp(16px, 4.5vw, 20px);
+        }
+
+        .tres-cuatro-cinco {
+            gap: clamp(12px, 6vw, 30px);
+            font-size: clamp(48px, 14vw, 64px);
+        }
+
+        .tres-cuatro-cinco div {
+            width: clamp(56px, 18vw, 80px);
+        }
+
+        h2 {
+            font-size: clamp(18px, 5.5vw, 28px);
+            letter-spacing: 1px;
+        }
+
+        .ubicacion {
+            justify-content: center;
+            text-align: left;
+        }
+
+        .comprar-link {
+            margin-top: 48px;
+        }
+
+        .contactos {
+            gap: 20px;
+        }
+
+        .separador {
+            width: min(201px, 70vw);
+            height: auto;
+        }
+    }
+</style>

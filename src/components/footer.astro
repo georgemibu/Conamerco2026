@@ -1,0 +1,132 @@
+<footer>
+    <p>© 2024 CONAMERCO. <br>Todos los derechos reservados.</p>
+    <div class="clam">
+        <p>Organiza</p>
+        <img src="/LogoCLAM.png" alt="CLAM" />
+    </div>
+    <img class="separador" src="/separador.png" alt="Separador" />
+    <img class="logo" src="/rociodesign.png" alt="Rocio Design" />
+</footer>
+
+<style>
+    footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: clamp(20px, 3vw, 40px);
+        padding: 24px clamp(24px, 5vw, 72px);
+        background: linear-gradient(145deg, #064b82 0%, #003d72 65%, #002f58 100%);
+        color: white;
+        text-align: center;
+    }
+
+    footer > p {
+        flex: 0 1 220px;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .clam {
+        display: flex;
+        flex: 0 1 auto;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 12px 20px;
+        border: 1px solid rgb(255 255 255 / 18%);
+        border-radius: 14px;
+        background-color: rgb(255 255 255 / 8%);
+    }
+
+    .clam p {
+        flex: 0 0 auto;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+    }
+
+    .clam img {
+        display: block;
+        width: auto;
+        height: 42px;
+        max-width: 150px;
+        object-fit: contain;
+    }
+
+    .separador {
+        display: block;
+        width: clamp(100px, 18vw, 200px);
+        height: auto;
+        opacity: 0.8;
+    }
+
+    .logo {
+        display: block;
+        flex: 0 1 160px;
+        width: 100%;
+        max-width: 160px;
+        height: 32px;
+        object-fit: contain;
+    }
+
+    @media (max-width: 850px) {
+        footer {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            justify-items: center;
+            gap: 14px 20px;
+            padding: 24px;
+        }
+
+        footer > p {
+            flex: initial;
+        }
+
+        .clam {
+            padding: 9px 14px;
+        }
+
+        .clam img {
+            height: 36px;
+        }
+
+        .separador {
+            width: min(100%, 160px);
+        }
+
+        .logo {
+            width: min(100%, 140px);
+            flex-basis: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        footer {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 12px;
+            padding: 20px 16px 18px;
+        }
+
+        .clam {
+            gap: 10px;
+            padding: 8px 14px;
+        }
+
+        .clam img {
+            height: 34px;
+            max-width: 120px;
+        }
+
+        .separador {
+            width: min(100%, 140px);
+        }
+
+        .logo {
+            width: min(100%, 130px);
+            height: 26px;
+        }
+    }
+
+</style>

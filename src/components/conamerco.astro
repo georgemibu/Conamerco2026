@@ -1,0 +1,203 @@
+<h2 id="conamerco-2026">XXVII CONAMERCO 2026</h2>
+<h3>UNA EXPERIENCIA PARA PENSAR LA ADMINISTRACIÓN QUE VIENE</h3>
+<p>
+   <b>El XXVII CONAMERCO</b> llega a Argentina y tiene a Mendoza como sede. <br /> <br>
+
+    Durante 3 jornadas, profesionales, autoridades académicas, docentes <br /> estudiantes,
+    especialistas y organismos públicos y privados. <br />
+    referentes de distintos ámbitos se reunirán para compartir conocimientos, <br
+    />
+    experiencias y nuevas perspectivas sobre los desafíos que atraviesa la <br
+    />
+    Administración.
+    <br /> <br>
+    Mendoza es el punto de encuentro donde las ideas se convierten en <br /> oportunidades,
+    fortaleciendo nuestra profesión, impulsando <br />
+    la innovación y contribuyendo al desarrollo sostenible de la provincia y de <br
+    /> toda Latinoamérica.
+    <br /> <br>
+    Organiza y participa
+    <br /> <br>
+    <b>Colegio Profesional de Licenciados en Administración de Mendoza - Argentina</b><br
+    /><br>
+
+    Con la participación de <br />
+    <br>
+    <b>OLA - Organización Latinoamericana de Administración</b>
+</p>
+
+<div class="logos">
+    <div class="logo">
+        <img src="/clam.png" alt="Conamerco" />
+        <p>
+            CLAM <br />
+            Colegio Profesional de Licenciados en <br> Administración de Mendoza
+        </p>
+    </div>
+    <div class="logo">
+        <img src="/ola.png" alt="Conamerco" />
+        <p>
+            OLA <br />
+            Organización Latinoamericana <br> de Administración
+        </p>
+    </div>
+</div>
+
+<img class="separador"src="./separador2.png" alt="">
+
+
+<style>
+    h2{
+        font-family: "Poppins", sans-serif;
+        font-size: 40px;
+        color: #003d72;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+        margin-top:50px;
+    }
+    h3{
+        font-family: "Poppins", sans-serif;
+        font-size: 28px;
+        background: linear-gradient(90deg, #003d72, #007bff, #003d72);
+        background-size: 200% 100%;
+        background-position: 0 0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+        margin-top:20px;
+        transition: background-position 500ms ease;
+    }
+    h3:hover {
+        background-position: 100% 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        h3 {
+            transition: none;
+        }
+    }
+
+    p{
+        margin-top: 20px;
+        text-align: center;
+        font-size:16px;
+    }
+    .logos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        margin-top: 50px;
+    }
+    .logo{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1px;
+        font-weight: bold;
+        transition: transform 250ms ease;
+    }
+    .logo img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 250ms ease, filter 250ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+        .logo:hover {
+            transform: translateY(-8px);
+        }
+        .logo:hover img {
+            transform: scale(1.06);
+            filter: drop-shadow(0 8px 10px rgb(0 61 114 / 22%));
+        }
+    }
+    .separador{
+        display: block;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+
+    @media (max-width: 900px) {
+        h2 {
+            padding: 0 20px;
+            font-size: clamp(30px, 5vw, 40px);
+        }
+        h3 {
+            padding: 0 24px;
+            font-size: clamp(21px, 3.5vw, 28px);
+        }
+        p {
+            padding: 0 24px;
+            font-size: 15px;
+        }
+        .logos {
+            gap: clamp(32px, 7vw, 70px);
+            margin-top: 40px;
+            padding: 0 24px;
+        }
+        .logo {
+            max-width: 45%;
+        }
+        .logo img {
+            max-width: min(100%, 200px);
+        }
+        .logo p {
+            padding: 0;
+        }
+        .separador {
+            max-width: calc(100% - 40px);
+            height: auto;
+        }
+    }
+
+    @media (max-width: 600px) {
+        h2 {
+            margin-top: 36px;
+            font-size: clamp(26px, 7vw, 34px);
+            letter-spacing: 1px;
+        }
+        h3 {
+            margin: 16px auto 0;
+            font-size: clamp(19px, 5.5vw, 24px);
+            letter-spacing: 1px;
+        }
+        p {
+            padding: 0 18px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .logos {
+            flex-direction: column;
+            gap: 32px;
+            margin-top: 32px;
+        }
+        .logo {
+            max-width: 100%;
+        }
+        .logo img {
+            max-width: min(70vw, 180px);
+        }
+        .separador {
+            max-width: calc(100% - 32px);
+            margin-top: 36px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        h3,
+        .logo,
+        .logo img {
+            transition: none;
+        }
+        .logo:hover,
+        .logo:hover img {
+            transform: none;
+            filter: none;
+        }
+    }
+</style>

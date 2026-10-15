@@ -1,0 +1,290 @@
+---
+import { viviEntryLink } from "../data/site-content";
+---
+
+<h2>VIVI CONAMERCO EN MENDOZA</h2>
+<div class="centro">
+    <img src="/viviconamerco.png" alt="viviconamerco" />
+    <div class="descripcion">
+        <h3>MENDOZA, PUNTO DE ENCUENTRO</h3>
+        <p>
+            Tres jornadas para aprender, compartir experiencias, generar
+            vínculos y descubrir nuevas oportunidades en una de las provincias
+            que más representa la identidad productiva, innovadora y
+            emprendedora de Argentina.
+        </p>
+        {
+            viviEntryLink.href ? (
+                <a class="mundial-link" href={viviEntryLink.href}>
+                    {viviEntryLink.label}
+                </a>
+            ) : (
+                <span class="mundial-link" aria-disabled="true">
+                    {viviEntryLink.label}
+                </span>
+            )
+        }
+    </div>
+</div>
+<div class="bottom">
+    <div class="container">
+        <img src="/lugar.png" alt="lugar" />
+        <p>
+            <b>¿DÓNDE NOS ENCONTRAMOS?</b><br />Espacio Cultural Julio Le Parc
+        </p>
+    </div>
+    <div class="container">
+        <img src="/entrada.png" alt="lugar" />
+        <p>
+            <b>ADQUIRÍ TU ENTRADA</b><br />Tu entrada para CONAMERCO 
+        </p>
+    </div>
+    <div class="container">
+        <img src="/precio.png" alt="lugar" />
+        <p>
+            <b>ENTRADA ANTICIPADA: $40.000</b><br />ENTRADA GENERAL: $60.000
+        </p>
+    </div>
+    <div class="container">
+        <img src="/atencion.png" alt="lugar" />
+        <p>
+            <b>Las entradas No son numeradas.
+La compra de la entrada</b><br /> No 
+admite reembolso.
+        </p>
+    </div>
+</div>
+<img class="separador" src="./separador2.png" alt="" />
+
+
+<style>
+    h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(30px, 4vw, 40px);
+        color: #003d72;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+        margin: 50px 20px 0;
+    }
+
+    .centro {
+        width: min(calc(100% - 48px), 1100px);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: clamp(24px, 4vw, 56px);
+        margin: 50px auto 0;
+    }
+
+    .centro > img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .descripcion {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 0;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: center;
+    }
+
+    .mundial-link {
+        width: 170px;
+        display: table;
+        margin: 12px auto 0;
+        padding: 12px 24px;
+        background-color: #003d72;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 36px;
+        text-decoration: none;
+        text-align: center;
+        transition:
+            background-color 180ms ease,
+            transform 180ms ease;
+    }
+    h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(22px, 2.6vw, 28px);
+        background: linear-gradient(90deg, #003d72, #007bff, #003d72);
+        background-size: 200% 100%;
+        background-position: 0 0;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+        margin: 0;
+        transition: background-position 500ms ease;
+    }
+    a.mundial-link:hover {
+        background-color: #007bff;
+        transform: translateY(-2px);
+    }
+
+    .mundial-link[aria-disabled="true"] {
+        cursor: default;
+        opacity: 0.85;
+    }
+
+    .mundial-link:focus-visible {
+        outline: 3px solid #007bff;
+        outline-offset: 3px;
+    }
+
+    .separador {
+        display: block;
+        max-width: calc(100% - 40px);
+        height: auto;
+        margin: 50px auto 0;
+    }
+
+    .bottom {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+        width: min(calc(100% - 48px), 1100px);
+        margin: 48px auto 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+        min-height: 190px;
+        padding: 24px 18px;
+        text-align: center;
+        color: white;
+        background: linear-gradient(145deg, #064b82 0%, #003d72 70%, #002f58 100%);
+        border: 1px solid rgb(0 61 114 / 10%);
+        border-radius: 20px;
+        box-shadow: 0 8px 22px rgb(0 45 84 / 12%);
+        transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .container img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        flex: 0 0 auto;
+    }
+
+    .container p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.55;
+        overflow-wrap: anywhere;
+    }
+
+    .container b {
+        display: inline-block;
+        margin-bottom: 4px;
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .separador {
+        display: block;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    
+
+    @media (hover: hover) and (pointer: fine) {
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgb(0 45 84 / 22%);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .bottom {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            width: min(calc(100% - 40px), 700px);
+            margin-top: 40px;
+        }
+
+        .container {
+            min-height: 175px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .bottom {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 14px;
+            width: min(calc(100% - 32px), 420px);
+            margin-top: 32px;
+        }
+
+        .container {
+            min-height: 0;
+            padding: 20px 18px;
+        }
+
+        .container img {
+            width: 42px;
+            height: 42px;
+        }
+    }
+
+
+    @media (max-width: 700px) {
+        h2 {
+            margin-top: 36px;
+            letter-spacing: 1px;
+        }
+
+        .centro {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 24px;
+            width: min(calc(100% - 36px), 560px);
+            margin-top: 32px;
+        }
+
+        .centro > img {
+            width: min(100%, 480px);
+            margin: 0 auto;
+        }
+
+        .descripcion {
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        h3 {
+            font-size: clamp(21px, 5.5vw, 28px);
+        }
+
+        .separador {
+            margin-top: 36px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .container {
+            transition: none;
+        }
+
+        .container:hover {
+            transform: none;
+        }
+    }
+</style>

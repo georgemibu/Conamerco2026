@@ -1,0 +1,205 @@
+---
+import { mundialLink } from "../data/site-content";
+---
+
+<h2 id="mundial">MUNDIAL DE ESTUDIANTES DE ADMINISTRACIÓN</h2>
+<p>
+    Una gran final dentro de CONAMERCO. <br /><br />
+    En el marco de XXVII CONAMERCO 2026 se llevará a cabo <b
+        >la Gran Final de la 1° Edición del Mundial de Estudiantes de
+        Administración</b
+    > que organiza el <b>CLAM</b>, donde las selecciones universitarias
+    participantes presentarán sus proyectos de startups y competirán por el
+    trofeo de oro y el reconocimiento Latinoamericano.
+</p>
+<div class="gran-final">
+    <img src="/copa.png" alt="mundial" />
+    <p class="sub">5 DE NOVIEMBRE</p>
+    <p class="descripcion">
+        LA GRAN FINAL DEL MUNDIAL DE ESTUDIANTES DE ADMINISTRACIÓN
+    </p>
+</div>
+<p>A continuación, podés ingresar a la página oficial...</p>
+{
+    mundialLink.href ? (
+        <a class="mundial-link" href={mundialLink.href}>
+            {mundialLink.label}
+        </a>
+    ) : (
+        <span class="mundial-link" aria-disabled="true">
+            {mundialLink.label}
+        </span>
+    )
+}
+
+<img class="separador" src="/separador.png" alt="Separador" />
+
+<style>
+    h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 40px;
+        color: #003d72;
+        font-weight: bold;
+        letter-spacing: 2px;
+        text-align: center;
+        margin-top: 50px;
+    }
+    .separador {
+        display: block;
+        max-width: calc(100% - 40px);
+        height: auto;
+        margin: 50px auto 0;
+    }
+    p {
+        font-family: "Poppins", sans-serif;
+        font-size: 15px;
+        line-height: 1.55;
+        text-align: center;
+        padding-left: 100px;
+        padding-right: 100px;
+        margin-top: 20px;
+    }
+    .gran-final {
+        width: min(calc(100% - 32px), 520px);
+        min-height: 126px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin: 20px auto;
+        padding: 16px 24px;
+        background: #003d72;
+        border-radius: 20px;
+        color: white;
+    }
+    .gran-final img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+    }
+    .gran-final p {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        color: white;
+        text-align: center;
+    }
+    .gran-final .sub {
+        font-size: clamp(14px, 2vw, 17px);
+        font-weight: 600;
+        letter-spacing: 1px;
+        line-height: 1.2;
+    }
+    .gran-final .descripcion {
+        max-width: 460px;
+        font-size: clamp(15px, 2.3vw, 20px);
+        font-weight: 700;
+        letter-spacing: 0.4px;
+        line-height: 1.25;
+    }
+    .mundial-link {
+        display: table;
+        margin: 32px auto 0;
+        padding: 12px 24px;
+        background-color: #003d72;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: background-color 180ms ease, transform 180ms ease;
+    }
+
+    a.mundial-link:hover {
+        background-color: #007bff;
+        transform: translateY(-2px);
+    }
+
+    .mundial-link[aria-disabled="true"] {
+        cursor: default;
+        opacity: 0.85;
+    }
+
+    .mundial-link:focus-visible {
+        outline: 3px solid #007bff;
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 900px) {
+        h2 {
+            margin: 40px 24px 0;
+            font-size: clamp(30px, 5vw, 40px);
+            line-height: 1.2;
+        }
+
+        p {
+            max-width: 900px;
+            margin: 20px auto 0;
+            padding: 0 32px;
+        }
+
+        .gran-final {
+            width: min(calc(100% - 48px), 520px);
+        }
+
+        .mundial-link {
+            margin-top: 28px;
+        }
+
+        .separador {
+            margin-top: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            margin: 32px 18px 0;
+            font-size: clamp(25px, 7vw, 32px);
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-top: 16px;
+            padding: 0 20px;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .gran-final {
+            width: calc(100% - 32px);
+            min-height: 0;
+            gap: 8px;
+            margin: 20px auto;
+            padding: 14px 18px;
+            border-radius: 16px;
+        }
+
+        .gran-final img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .gran-final .sub {
+            font-size: 14px;
+        }
+
+        .gran-final .descripcion {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .mundial-link {
+            margin-top: 24px;
+            padding: 12px 22px;
+            font-size: 15px;
+        }
+
+        .separador {
+            max-width: calc(100% - 32px);
+            margin-top: 32px;
+        }
+    }
+</style>

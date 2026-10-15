@@ -1,0 +1,315 @@
+---
+import { clamLink, sponsors, videos } from "../data/site-content";
+---
+
+<h2 id="clam">CLAM</h2>
+<h3>EL CLAM TE INVITA A SER PARTE</h3>
+<section class="clam-copy" aria-label="Sobre el CLAM">
+    <p>
+        "Profesiones que crecen, se encuentran y miran hacia le futuro". El Colegio
+        Profesional de Licenciados en Administración en Mendoza <b>(CLAM)</b> es la institución
+        que representa y acompaña el desarrollo de las profesiones vinculadas a las ciencias
+        de la administración en nuestra provincia, promoviendo espacios de formulación,
+        vinculación intercambio y crecimiento profesional.
+    </p>
+    <p>
+        Desde Mendoza, asumimos el desafío de generar espacios que nos permitan
+        encontrarnos, compartir encontrarnos, compartir experiencias y pensar juntos
+        los nuevos desafíos de la Administración.
+    </p>
+    <p>
+        Por eso, el CLAM te invita a ser parte de <b>XXVII CONAMERCO 2026</b>, el
+        Congreso de Administración del MERCOSUR que llega por primera vez a la
+        Argentina y tiene a Mendoza como sede.
+    </p>
+    <p>
+        Durante tres jornadas, profesionales, estudiantes, docentes, especialistas e
+        interesados en el mundo de la Administración podrán encontrarse para
+        aprender, debatir, intercambio ideas y construir nuevas oportunidades.
+    </p>
+    <p>
+        Te invitamos a ser parte de este encuentro que busca fortalecer nuestra
+        profesión, impulsar la innovación y contribuir al desarrollo de nuestra
+        comunidad y de toda Latinoamérica.
+    </p>
+    {
+        clamLink.href ? (
+            <a class="clam-link" href={clamLink.href}>
+                {clamLink.label}
+            </a>
+        ) : (
+            <span class="clam-link" aria-disabled="true">
+                {clamLink.label}
+            </span>
+        )
+    }
+</section>
+
+<section class="auspiciantes" aria-labelledby="auspiciantes-title">
+    <h3 id="auspiciantes-title">AUSPICIANTES</h3>
+    <div class="auspiciantes-grid">
+        {sponsors.map((sponsor) =>
+            sponsor.href ? (
+                <a class="auspiciante" href={sponsor.href} aria-label={sponsor.name}>
+                    <img src={sponsor.image} alt="" loading="lazy" />
+                </a>
+            ) : (
+                <div class="auspiciante">
+                    <img src={sponsor.image} alt={`Logo de ${sponsor.name}`} loading="lazy" />
+                </div>
+            ),
+        )}
+    </div>
+</section>
+
+<section class="videos" aria-labelledby="videos-title">
+    <h3 id="videos-title">CONOCÉ MÁS SOBRE EL CLAM</h3>
+    <div class="videos-grid">
+        {videos.map((video) => (
+            <article class="video-card">
+                <h4>{video.title}</h4>
+                <video controls preload="metadata" playsinline>
+                    <source src={video.src} type={video.type} />
+                    Tu navegador no admite la reproducción de videos.
+                </video>
+            </article>
+        ))}
+    </div>
+</section>
+
+<style>
+    h2 {
+        margin: 50px 20px 0;
+        color: #003d72;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(30px, 4vw, 40px);
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+    h3 {
+        margin: 20px 20px 0;
+        color: #003d72;
+        font-family: "Poppins", sans-serif;
+        font-size: clamp(22px, 3vw, 28px);
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    .clam-copy {
+        width: min(calc(100% - 48px), 900px);
+        margin: 28px auto 0;
+        padding: clamp(24px, 4vw, 40px);
+        border: 1px solid #dbe7f1;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #fff, #f3f8fc);
+        box-shadow: 0 8px 24px rgb(0 61 114 / 8%);
+    }
+
+    .clam-copy p {
+        margin: 0;
+        color: #405365;
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .clam-copy p + p {
+        margin-top: 16px;
+    }
+
+    .clam-copy b {
+        color: #003d72;
+    }
+
+    .clam-link {
+        display: block;
+        min-width: 140px;
+        margin: 28px auto 0;
+        padding: 12px 24px;
+        border-radius: 36px;
+        background: #003d72;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background-color 180ms ease, transform 180ms ease;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    a.clam-link:hover {
+        transform: translateY(-2px);
+        background: #007bff;
+    }
+
+    .clam-link[aria-disabled="true"] {
+        cursor: default;
+        opacity: 0.85;
+    }
+
+    .clam-link:focus-visible {
+        outline: 3px solid #007bff;
+        outline-offset: 3px;
+    }
+
+    .auspiciantes {
+        width: min(calc(100% - 48px), 1100px);
+        margin: 48px auto 0;
+    }
+
+    .auspiciantes h3 {
+        margin: 0 0 24px;
+    }
+
+    .auspiciantes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .auspiciante {
+        display: flex;
+        min-height: 150px;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        border: 1px solid #dbe7f1;
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 8px 22px rgb(0 61 114 / 8%);
+        transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .auspiciante img {
+        display: block;
+        width: 100%;
+        max-width: 220px;
+        max-height: 100px;
+        object-fit: contain;
+    }
+
+    .videos {
+        width: min(calc(100% - 48px), 1100px);
+        margin: 64px auto;
+    }
+
+    .videos > h3 {
+        margin: 0 0 24px;
+    }
+
+    .videos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: 24px;
+    }
+
+    .video-card {
+        min-width: 0;
+        padding: 18px;
+        overflow: hidden;
+        border: 1px solid #dbe7f1;
+        border-radius: 18px;
+        background: linear-gradient(145deg, #fff, #f3f8fc);
+        box-shadow: 0 8px 22px rgb(0 61 114 / 8%);
+    }
+
+    .video-card h4 {
+        margin: 0 0 12px;
+        color: #003d72;
+        font-family: "Poppins", sans-serif;
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .video-card video {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        background: #002f58;
+        object-fit: contain;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .auspiciante:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 30px rgb(0 61 114 / 16%);
+        }
+    }
+
+    @media (max-width: 700px) {
+        h2 {
+            margin-top: 36px;
+            letter-spacing: 1px;
+        }
+
+        .clam-copy {
+            width: calc(100% - 32px);
+            margin-top: 24px;
+            padding: 24px;
+        }
+
+        .clam-copy p {
+            font-size: 15px;
+        }
+
+        .auspiciantes {
+            width: calc(100% - 32px);
+            margin: 36px auto 0;
+        }
+
+        .auspiciantes-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .auspiciante {
+            min-height: 130px;
+            padding: 18px;
+        }
+
+        .videos {
+            width: calc(100% - 32px);
+            margin: 48px auto;
+        }
+
+        .videos-grid {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 18px;
+        }
+
+        .video-card {
+            padding: 14px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .clam-copy {
+            padding: 20px;
+        }
+
+        .auspiciantes-grid {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .auspiciante {
+            min-height: 120px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .clam-link,
+        .auspiciante {
+            transition: none;
+        }
+
+        a.clam-link:hover,
+        .auspiciante:hover {
+            transform: none;
+        }
+    }
+</style>
