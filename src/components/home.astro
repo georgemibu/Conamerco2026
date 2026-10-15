@@ -108,6 +108,13 @@ import { homeContacts, homePurchaseLink } from "../data/site-content";
         font-weight: 400;
         gap: 16px;
     }
+    .ubicacion img {
+        display: block;
+        width: 32px;
+        height: 32px;
+        flex: 0 0 32px;
+        object-fit: contain;
+    }
     .comprar-link {
         width: 161px;
         display: block;
@@ -225,9 +232,9 @@ import { homeContacts, homePurchaseLink } from "../data/site-content";
         }
 
         .ubicacion img {
-            flex: 0 0 auto;
-            max-width: 32px;
-            height: auto;
+            width: 32px;
+            height: 32px;
+            flex-basis: 32px;
         }
 
         .ubicacion p {
