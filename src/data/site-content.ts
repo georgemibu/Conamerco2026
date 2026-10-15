@@ -48,7 +48,7 @@ export interface ActionLink {
 
 export const homePurchaseLink: ActionLink = {
     label: "COMPRAR ENTRADAS",
-    href: "https://www.google.com",
+    href: "https://www.direcciondelformulario.com",
 };
 
 export interface ContactLink {
@@ -58,7 +58,7 @@ export interface ContactLink {
 }
 
 export const homeContacts: ContactLink[] = [
-    { name: "Instagram", image: "/instagram.png", href: "" },
+    { name: "Instagram", image: "/instagram.png", href: "https://www.instagram.com" },
     { name: "LinkedIn", image: "/linkedin.png", href: "" },
     { name: "WhatsApp", image: "/whatsapp.png", href: "" },
     { name: "Facebook", image: "/facebook.png", href: "" },
@@ -135,6 +135,18 @@ export const speakers: Speaker[] = [
         image: "/disertantes/disertante1.png",
         socials: { whatsapp: "", instagram: "", spotify: "" },
     },
+    {
+        name: "Lic. Rocio",
+        nationality: "Italia",
+        countryCode: "IT",
+        specialty: "Diseñadora",
+        date: "5 de Noviembre, 2026",
+        time: "11 am",
+        city: "Mendoza, Argentina",
+        venue: "Espacio Cultural Julio Le Park",
+        image: "/disertantes/disertante1.png",
+        socials: { whatsapp: "", instagram: "", spotify: "" },
+    },
 ];
 
 export const mundialLink: ActionLink = {
@@ -171,7 +183,8 @@ export interface FeaturedVideo {
 }
 
 export const videos: FeaturedVideo[] = [
-    { title: "Video 1", src: "/video1.mp4", type: "video/mp4" },
+    { title: "Video Conamerco", src: "/video1.mp4", type: "video/mp4" },
     { title: "Video 2", src: "/video2.mp4", type: "video/mp4" },
     { title: "Video 3", src: "/video3.mp4", type: "video/mp4" },
+    { title: "Video Conamerco 4", src: "/video1.mp4", type: "video/mp4" },
 ];
